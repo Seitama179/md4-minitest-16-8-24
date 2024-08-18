@@ -57,9 +57,17 @@
         <td><a th:href="@{/books/detail/{id}(id=${book.id})}">Xem</a></td>
         <td>
             <button th:onclick="'window.location.href = \'' +@{/books/edit/{id}(id=${book.id})} + '\''">Sửa</button>
-            <button th:onclick="'window.location.href = \'' +@{/books/delete/{id}(id=${book.id})} + '\''">Xoá</button>
+            <button th:onclick="'confirmDelete(' + ${book.id} + ')'">Xoá</button>
         </td>
     </tr>
 </table>
+
+<script>
+    function confirmDelete(bookId) {
+        if (confirm("Bạn có chắc chắn muốn xóa sách này không?")) {
+            window.location.href = "/books/delete/" + bookId;
+        }
+    }
+</script>
 </body>
 </html>
