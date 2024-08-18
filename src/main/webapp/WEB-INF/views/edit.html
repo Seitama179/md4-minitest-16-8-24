@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chỉnh sửa</title>
+</head>
+<body>
+<h2>Chỉnh sửa thông tin sách</h2>
+<a th:href="@{/books/}">Quay lại danh sách</a>
+<div id="form">
+    <form th:action="@{/books/update}" th:object="${book}"
+          method="post" novalidate="novalidate" enctype="multipart/form-data">
+        <input type="hidden" th:field="*{id}" />
+        <div>
+            <label for="name">Tên: </label>
+            <input type="text" id="name" th:field="*{name}"/>
+        </div>
+        <div>
+            <label for="author">Tác giả: </label>
+            <input type="text" id="author" th:field="*{author}">
+        </div>
+        <div>
+            <label for="price">Giá: </label>
+            <input type="text" id="price" th:field="*{price}">
+        </div>
+        <div>
+            <label for="category">Thể loại: </label>
+            <input type="text" id="category" th:field="*{category}">
+        </div>
+        <div>
+            <label for="image">Image</label>
+            <input type="file" id="image" th:field="*{image}"/>
+        </div>
+        <input type="submit" value="Sửa"/>
+    </form>
+</div>
+
+
+</body>
+</html>

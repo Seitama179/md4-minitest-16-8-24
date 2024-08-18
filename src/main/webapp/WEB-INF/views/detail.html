@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Xem thông tin sách</title>
+</head>
+<body>
+<h2>Xem thông tin sách</h2>
+<a th:href="@{/books/}">Quay lại danh sách</a>
+<div>
+    <div>
+        <label>Tên: </label>
+        <label th:text="${book.name}"></label>
+    </div>
+    <div>
+        <label>Tác giả: </label>
+        <label th:text="${book.author}"></label>
+    </div>
+    <div>
+        <label>Giá: </label>
+        <label th:text="${#numbers.formatDecimal(book.price, 1, 'COMMA', 0, 'POINT')} + ' VND'"></label>
+    </div>
+    <div>
+        <label>Thể loại: </label>
+        <label th:text="${book.category}"></label>
+    </div>
+    <div>
+        <img width="200" th:src="@{'/i/' + ${book.image}}" alt="" src="">
+    </div>
+</div>
+
+</body>
+</html>
